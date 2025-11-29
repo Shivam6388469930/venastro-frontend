@@ -96,11 +96,11 @@ export default function CareersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white px-4 py-12">
+    <div className="min-h-screen bg-black text-white px-4 py-12 ">
       <div className="max-w-7xl mx-auto">
 
         {/* Hero Title */}
-        <h1 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+        <h1 className="text-5xl mt-20 font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
           Join Our Team
         </h1>
         <p className="text-center text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
