@@ -22,14 +22,21 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">V</span>
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:from-purple-300 group-hover:to-pink-300 transition-all">
-              Ven Astro
-            </span>
-          </Link>
+<Link href="/" className="flex items-center group">
+  <div className="flex items-center">
+    <img
+      src="/logo.png"
+      alt="Ven Astro Logo"
+      className=" h-48 group-hover:scale-125 transition-all duration-300"
+    />
+  </div>
+</Link>
+
+
+
+
+
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -77,7 +84,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isOpen ? 'max-h-64 opacity-100 py-4' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-screen opacity-100 py-4' : 'max-h-0 opacity-0'
         }`}>
           <div className="flex flex-col space-y-4 px-2">
             {navItems.map((item) => (
