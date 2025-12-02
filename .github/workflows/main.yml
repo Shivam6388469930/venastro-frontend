@@ -10,45 +10,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      - run: npm install
 
-      - name: Build project
-        run: npm run build
+      - run: npm run build   # now creates /out
 
-      - name: Upload Next.js build
+      - name: Upload static files
         uses: actions/upload-artifact@v4
         with:
           name: production-files
-          path: .next/**    # <<--- Fix
-          retention-days: 7  # optional
-  
+          path: out/**
+
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: production-files
-          path: .next   # <<--- Fix (same folder name)
+          path: ./out
 
-      - name: Debug — show files
-        run: ls -R .next
+      - name: List exported files (debug)
+        run: ls -R ./out
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: .next  # <<--- Same folder
+          publish_dir: ./out
