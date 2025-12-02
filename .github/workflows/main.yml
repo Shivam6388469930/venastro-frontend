@@ -30,11 +30,8 @@ jobs:
       - name: Run tests
         run: npm test --if-present
 
-      - name: Build Next.js app
+      - name: Build Next.js app (auto-export)
         run: npm run build
-
-      - name: Export static build
-        run: npm run export
 
       - name: Upload static export
         uses: actions/upload-artifact@v4
