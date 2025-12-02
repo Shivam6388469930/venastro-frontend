@@ -18,7 +18,7 @@ jobs:
 
       - run: npm install
 
-      - run: npm run build   # now creates /out
+      - run: npm run build   # produces /out
 
       - name: Upload static files
         uses: actions/upload-artifact@v4
@@ -44,5 +44,5 @@ jobs:
       - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.TOKEN }} # << FIXED
           publish_dir: ./out
